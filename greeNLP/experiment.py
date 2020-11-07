@@ -124,7 +124,7 @@ class Experiment(ConfigExperiment):
         data_params = dict(self.stages_config[stage]["data_params"])
         model_name = data_params["model_name"]
         tokenizer = AutoTokenizer.from_pretrained(model_name)
-        collate_fn = DataCollatorForLanguageModeling(tokenizer).collate_batch
+        collate_fn = DataCollatorForLanguageModeling(tokenizer)
         loaders_params = {
             "train": {"collate_fn": collate_fn},
             "valid": {"collate_fn": collate_fn},

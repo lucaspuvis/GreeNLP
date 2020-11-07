@@ -55,7 +55,7 @@ def test_runner():
     train_dataset = LanguageModelingDataset(train_df["text"], tokenizer)
     valid_dataset = LanguageModelingDataset(valid_df["text"], tokenizer)
 
-    collate_fn = DataCollatorForLanguageModeling(tokenizer).collate_batch
+    collate_fn = DataCollatorForLanguageModeling(tokenizer)
     train_dataloader = DataLoader(
         train_dataset, collate_fn=collate_fn, batch_size=2
     )
