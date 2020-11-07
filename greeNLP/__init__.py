@@ -8,7 +8,7 @@ from .callbacks import (
     MSELossCallback,
     PerplexityMetricCallbackDistillation,
 )
-# from .experiment import Experiment  # noqa: F401
+from .experiment import Experiment  # noqa: F401
 from .models import BertForMLM, DistilbertStudentModel
 from .runners import DistilMLMRunner as Runner  # noqa: F401
 
