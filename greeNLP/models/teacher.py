@@ -2,7 +2,7 @@ from torch import nn
 import transformers
 
 
-class BertTeacher(nn.Module):
+class BertForMLM(nn.Module):
     """
     BertForMLM
     Simplified huggingface model

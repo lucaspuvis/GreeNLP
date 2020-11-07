@@ -5,7 +5,7 @@ from torch import nn
 import transformers
 
 
-class BertStudent(nn.Module):
+class DistilbertStudentModel(nn.Module):
     """
     DistilbertStudentModel
     Distil model class based on huggingface class but with
