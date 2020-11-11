@@ -2,12 +2,13 @@
 from typing import Dict, List, Union
 
 from catalyst.callbacks import IMetricCallback
+from catalyst.callbacks.metric import BatchMetricCallback
 import torch
 from torch import nn
 import torch.nn.functional as F
 
 
-class KLDivLossCallback(IMetricCallback):
+class KLDivLossCallback(BatchMetricCallback):
     """
     Callback to compute KL divergence loss
     """

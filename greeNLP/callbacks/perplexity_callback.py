@@ -1,9 +1,10 @@
 from catalyst.callbacks import IMetricCallback
+from catalyst.callbacks.metric import BatchMetricCallback
 from torch import nn
 import torch
 
 
-class PerplexityMetricCallbackDistillation(IMetricCallback):
+class PerplexityMetricCallbackDistillation(BatchMetricCallback):
     """
     Perplexity is a very popular metric in NLP
     especially in Language Modeling task.

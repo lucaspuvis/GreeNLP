@@ -1,11 +1,12 @@
 from typing import Dict, List, Union
 
 from catalyst.callbacks import IMetricCallback
+from catalyst.callbacks.metric import BatchMetricCallback
 import torch
 from torch import nn
 
 
-class MaskedLanguageModelCallback(IMetricCallback):
+class MaskedLanguageModelCallback(BatchMetricCallback):
     """
     Callback to compute masked language model loss
     """

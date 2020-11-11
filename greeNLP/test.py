@@ -1,6 +1,6 @@
 from catalyst import dl
 from catalyst.data.nlp import LanguageModelingDataset
-from catalyst.core import Callback
+from catalyst.callbacks import MetricAggregationCallback
 import pandas as pd
 import pytest  # noqa: F401
 import torch
@@ -65,11 +65,20 @@ def test_runner():
     loaders = {"train": train_dataloader, "valid": valid_dataloader}
 
     callbacks = {
-        "masked_ml_loss": MaskedLanguageModelCallback(),
+        "masked_lm_loss": MaskedLanguageModelCallback(),
         "mse_loss": MSELossCallback(),
         "cosine_loss": CosineLossCallback(),
         "kl_div_loss": KLDivLossCallback(),
-        "loss": Callback(40, 0, 0),
+        "loss": MetricAggregationCallback(
+            prefix="loss",
+            mode="weighted_sum",
+            metrics={
+                "cosine_loss": 1.0,
+                "masked_lm_loss": 1.0,
+                "kl_div_loss": 1.0,
+                "mse_loss": 1.0,
+            },
+        ),
         "optimizer": dl.OptimizerCallback(),
         "perplexity": PerplexityMetricCallbackDistillation(),
     }

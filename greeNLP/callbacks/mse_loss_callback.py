@@ -1,11 +1,12 @@
 from typing import Dict, List, Union
 
 from catalyst.callbacks import IMetricCallback
+from catalyst.callbacks.metric import BatchMetricCallback
 import torch
 from torch import nn
 
 
-class MSELossCallback(IMetricCallback):
+class MSELossCallback(BatchMetricCallback):
     """Callback to compute MSE loss"""
 
     def __init__(
