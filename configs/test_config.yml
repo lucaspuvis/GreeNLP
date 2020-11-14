@@ -50,6 +50,9 @@ stages:
         kl_div_loss: 1.0
         mse_loss: 1.0
       prefix: loss
+    carbontracker:
+      callback: CarbontrackerCallback
+      epochs: 1
     cosine_loss:
       callback: CosineLossCallback
       prefix: cosine_loss

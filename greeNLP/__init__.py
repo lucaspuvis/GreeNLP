@@ -7,6 +7,7 @@ from .callbacks import (
     MaskedLanguageModelCallback,
     MSELossCallback,
     PerplexityMetricCallbackDistillation,
+    CarbontrackerCallback
 )
 from .experiment import Experiment  # noqa: F401
 from .models import BertForMLM, DistilbertStudentModel
@@ -22,3 +23,4 @@ registry.Callback(MaskedLanguageModelCallback)
 registry.Callback(KLDivLossCallback)
 registry.Callback(MSELossCallback)
 registry.Callback(PerplexityMetricCallbackDistillation)
+registry.Callback(CarbontrackerCallback)
